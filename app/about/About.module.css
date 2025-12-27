@@ -1,0 +1,247 @@
+/* ===== CONTAINER ===== */
+.container {
+  min-height: 100vh;
+  background: radial-gradient(
+      1200px 600px at 20% 20%,
+      rgba(99, 102, 241, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      1000px 500px at 80% 30%,
+      rgba(168, 85, 247, 0.12),
+      transparent 60%
+    ),
+    linear-gradient(180deg, #f8f9ff, #ffffff);
+  overflow: hidden;
+  color: #111827;
+  position: relative;
+}
+
+/* ===== BLOBS ===== */
+.blob {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  filter: blur(180px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blobLeft {
+  top: -30%;
+  left: -20%;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.25),
+    transparent 70%
+  );
+}
+
+.blobRight {
+  bottom: -30%;
+  right: -20%;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.25),
+    transparent 70%
+  );
+}
+
+/* ===== WRAPPER ===== */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem 4rem;
+}
+
+/* ===== HERO ===== */
+.heroSection {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+
+.mainTitle {
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  color: #111827;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.whiteText {
+  color: white;
+}
+
+.gradientText {
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subText {
+  color: #4b5563;
+  max-width: 500px;
+  line-height: 1.8;
+  margin: 2rem 0;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondaryBtn {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* ===== IMAGE ===== */
+.photoWrapper {
+  background: white;
+  box-shadow: 0 40px 80px rgba(99, 101, 241, 0);
+  border-radius: 1.5rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.profileImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== INFO GRID ===== */
+.infoGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2.5rem;
+}
+
+/* ===== GLASS CARD ===== */
+.glassCard {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 2rem;
+  padding: 2.5rem;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== SKILLS ===== */
+.skillGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.skillItem {
+  background: rgba(0, 0, 0, 0.04);
+  padding: 1.2rem 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.skillItem strong {
+  color: #60a5fa;
+}
+
+/* ===== CONTACT ===== */
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 1rem;
+  color: #1f2937; /* đậm hơn */
+  transition: all 0.3s ease;
+}
+
+.contactItem a {
+  color: #121518;
+  text-decoration: none;
+}
+/* CONTACT CARD */
+.glassCard.contact {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  box-shadow: 0 20px 50px rgba(99, 102, 241, 0.15);
+}
+.contactItem svg {
+  color: #6366f1; /* icon nổi */
+}
+.contactItem:hover {
+  transform: translateX(6px);
+  color: #6366f1;
+}
+
+.contactItem:hover svg {
+  color: #4f46e5;
+}
+/* ===== EDUCATION ===== */
+.educationCard {
+  margin-top: 4rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 2rem;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.educationItem {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #60a5fa;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .buttonGroup {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,261 @@
+.container {
+  background: #ffffff;
+  color: #111827;
+  overflow-x: hidden;
+}
+
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  z-index: 1000;
+  transform-origin: 0%;
+}
+
+/* ===== Nav ===== */
+.nav {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 100;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #111827;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px 8px 8px;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.backIcon {
+  width: 32px;
+  height: 32px;
+  background: #111827;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backBtn:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Hero Section ===== */
+.heroSection {
+  padding: 120px 5% 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heroContent {
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+.badge {
+  color: #6366f1;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+}
+
+.title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 20px 0 40px;
+}
+
+.authorGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  text-align: left;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  background: #111827;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+}
+
+.imageFrame {
+  width: 100%;
+  height: 600px;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.2);
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
+}
+
+/* ===== Main Content Grid ===== */
+.mainContent {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+}
+
+.stickySidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.sidebarTitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9ca3af;
+  margin-bottom: 20px;
+}
+
+.tocList {
+  list-style: none;
+  padding: 0;
+}
+
+.tocList li {
+  margin-bottom: 15px;
+}
+
+.tocList a {
+  text-decoration: none;
+  color: #4b5563;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.tocList a:hover {
+  color: #6366f1;
+}
+
+/* ===== Article Typography ===== */
+.article {
+  max-width: 750px;
+}
+
+.lead {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #111827;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+
+.dropCap {
+  float: left;
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 0.8;
+  margin-right: 15px;
+  color: #6366f1;
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 80px 0 30px;
+  letter-spacing: -0.02em;
+}
+
+.infoCard {
+  position: relative;
+  background: #f8fafc;
+  padding: 40px;
+  border-radius: 30px;
+  border: 1px solid #e2e8f0;
+  margin: 40px 0;
+  overflow: hidden;
+}
+
+.cardGlow {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: #6366f120;
+  filter: blur(40px);
+}
+
+.modernQuote {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #111827;
+  padding: 40px 0;
+  border-top: 2px solid #f1f5f9;
+  border-bottom: 2px solid #f1f5f9;
+  margin: 60px 0;
+  font-style: italic;
+}
+
+.conclusionBox {
+  background: #111827;
+  color: white;
+  padding: 50px;
+  border-radius: 40px;
+  margin-top: 100px;
+}
+
+.conclusionBox h3 {
+  color: #6366f1;
+  margin-bottom: 15px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .imageFrame {
+    height: 400px;
+  }
+  .title {
+    font-size: 3rem;
+  }
+}

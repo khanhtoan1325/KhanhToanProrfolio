@@ -1,0 +1,381 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #7fb1e2 0%, #f5f7ff 40%, #ffffff 100%);
+  overflow: hidden;
+}
+
+/* ===== BACKGROUND BLOBS ===== */
+.blob {
+  position: absolute;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.12) 0%,
+    rgba(99, 102, 241, 0.06) 30%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(160px);
+  z-index: 0;
+}
+
+.blobTop {
+  top: -30%;
+  right: -15%;
+}
+
+.blobBottom {
+  bottom: -30%;
+  left: -15%;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.1) 0%,
+    rgba(168, 85, 247, 0.05) 35%,
+    transparent 70%
+  );
+}
+
+/* ===== WRAPPER ===== */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem 1.5rem;
+}
+
+/* ===== HEADER ===== */
+.title {
+  font-family: serif;
+  font-size: clamp(3.5rem, 9vw, 5rem);
+  font-weight: 700;
+  line-height: 0.9;
+  margin-bottom: 2rem;
+  color: #111;
+}
+
+.highlight {
+  color: #6366f1;
+  font-style: italic;
+}
+
+.description {
+  font-size: 1.25rem;
+  color: #555;
+  max-width: 560px;
+  line-height: 1.6;
+  margin-bottom: 5rem;
+  border-left: 2px solid #6366f1;
+  padding-left: 1.5rem;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== CARD ===== */
+.card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  border-radius: 2.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 40px 100px -30px rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* ===== IMAGE ===== */
+.imageWrapper {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.08);
+}
+
+/* ===== TECH OVERLAY ===== */
+.techOverlay {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+/* ===== NUMBER ===== */
+.projectNumber {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+/* ===== CONTENT ===== */
+.content {
+  padding: 2.5rem;
+}
+
+.projectTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.projectDesc {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* ===== LINK ===== */
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  color: #6366f1;
+}
+
+.link svg {
+  transition: transform 0.3s ease;
+}
+
+.link:hover svg {
+  transform: translateX(8px);
+}
+
+/* ===== BACKGROUND BLOBS ===== */
+.blob {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.05) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+}
+
+.blobTop {
+  top: -20%;
+  right: -10%;
+}
+
+.blobBottom {
+  bottom: -20%;
+  left: -10%;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.04) 0%,
+    transparent 70%
+  );
+}
+
+/* ===== WRAPPER ===== */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem 1.5rem;
+}
+
+/* ===== HEADER ===== */
+.title {
+  font-family: serif;
+  font-size: clamp(3.5rem, 9vw, 5rem);
+  font-weight: 700;
+  line-height: 0.9;
+  margin-bottom: 2rem;
+  color: #111;
+}
+
+.highlight {
+  color: #6366f1;
+  font-style: italic;
+}
+
+.description {
+  font-size: 1.25rem;
+  color: #555;
+  max-width: 560px;
+  line-height: 1.6;
+  margin-bottom: 5rem;
+  border-left: 2px solid #6366f1;
+  padding-left: 1.5rem;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== CARD ===== */
+.card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  border-radius: 2.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 40px 100px -30px rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* ===== IMAGE ===== */
+.imageWrapper {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.08);
+}
+
+/* ===== TECH OVERLAY ===== */
+.techOverlay {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+/* ===== NUMBER ===== */
+.projectNumber {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+/* ===== CONTENT ===== */
+.content {
+  padding: 2.5rem;
+}
+
+.projectTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.projectDesc {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* ===== LINK ===== */
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #111;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  color: #6366f1;
+}
+
+.link svg {
+  transition: transform 0.3s ease;
+}
+
+.link:hover svg {
+  transform: translateX(8px);
+}

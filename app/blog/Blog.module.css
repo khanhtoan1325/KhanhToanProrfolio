@@ -1,0 +1,235 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  background: #fdfdff;
+  -webkit-overflow-scrolling: touch;
+}
+
+.progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #6366f1, #a855f7);
+  transform-origin: 0%;
+  z-index: 100;
+}
+
+.section {
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 5%;
+}
+
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  z-index: 2;
+}
+
+.contentCard {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(30px) saturate(150%);
+  padding: 3.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr; /* Cân đối giữa ảnh và chữ */
+  gap: 5rem;
+  align-items: center;
+}
+
+.reverse {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.reverse .imageSection {
+  order: 2;
+}
+
+/* IMAGE STYLES */
+.imageSection {
+  width: 100%;
+  height: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5; /* Tạo tỉ lệ ảnh dọc chuyên nghiệp */
+  max-height: 550px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  background: #f3f4f6; /* Màu nền chờ khi ảnh chưa load */
+}
+
+.blogImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(99, 102, 241, 0.1), transparent);
+  mix-blend-mode: multiply;
+}
+
+/* TEXT STYLES */
+.textContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryTag {
+  color: #6366f1;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.75rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  margin-bottom: 2rem;
+}
+
+.description {
+  font-size: 1.15rem;
+  color: #4b5563;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 2rem;
+}
+
+.readMoreBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #111827;
+  text-decoration: none;
+  background: #f3f4f6;
+  padding: 0.8rem 1.5rem;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+
+.readMoreBtn:hover {
+  background: #111827;
+  color: #ffffff;
+}
+
+.readMoreBtn:hover .arrowIcon {
+  transform: translateX(5px);
+}
+
+.arrowIcon {
+  transition: transform 0.3s ease;
+}
+
+.metaInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.metaDate {
+  font-weight: 700;
+  color: #111827;
+}
+
+.metaTime {
+  color: #9ca3af;
+}
+
+.metaDot {
+  opacity: 0.3;
+  margin: 0 4px;
+}
+
+/* DECOR */
+.bgNumber {
+  position: absolute;
+  font-size: 35vw; /* Tăng kích thước một chút cho ấn tượng */
+  font-weight: 900;
+  color: rgba(99, 102, 241, 0.07); /* Độ đậm vừa phải */
+  bottom: -8vw;
+  left: -4vw;
+  z-index: 0;
+  line-height: 1;
+  font-family: sans-serif; /* Font không chân nhìn sẽ hiện đại hơn cho số lớn */
+
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+
+  /* Hiệu ứng mượt khi cuộn */
+  transition: all 0.5s ease;
+}
+
+.blob {
+  position: absolute;
+  width: 70vw;
+  height: 70vw;
+  filter: blur(140px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .cardGrid,
+  .reverse {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .imageSection {
+    order: -1 !important;
+  }
+  .imageWrapper {
+    height: 350px;
+  }
+  .contentCard {
+    padding: 2rem;
+    border-radius: 32px;
+  }
+  .section {
+    height: auto;
+    padding: 100px 5%;
+  }
+}

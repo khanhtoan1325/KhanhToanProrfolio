@@ -1,0 +1,160 @@
+/* WRAPPER */
+.card-nav-container {
+  position: fixed; /* Đổi thành fixed để menu luôn chạy theo khi scroll */
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1100px;
+  z-index: 999;
+}
+
+/* NAV WRAPPER */
+.card-nav {
+  background: #ffffff;
+  border-radius: 1rem;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  will-change: height; /* Tối ưu hiệu năng animation */
+}
+
+/* HEADER */
+.card-nav-top {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  position: relative;
+  z-index: 10; /* Đảm bảo header luôn nằm trên content */
+  background: #fff; /* Che phần content khi đóng */
+}
+
+/* ICON TOGGLE */
+.nav-toggle-btn {
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.nav-toggle-btn:hover {
+  background: #e5e5e5;
+}
+
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger-line {
+  width: 18px;
+  height: 2px;
+  background: #111;
+  border-radius: 2px;
+}
+
+/* LOGO */
+.logo-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+
+/* CTA BUTTON */
+.card-nav-cta-button {
+  background: #111;
+  color: white;
+  padding: 0 1.2rem;
+  height: 38px;
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.card-nav-cta-button:hover {
+  background: #333;
+}
+
+/* CONTENT CARD WRAPPER */
+.card-nav-content {
+  padding: 1rem;
+  display: flex;
+  gap: 16px;
+  opacity: 0; /* Mặc định ẩn */
+  /* Không dùng visibility: hidden ở đây để GSAP xử lý mượt hơn */
+}
+
+/* SINGLE NAV CARD */
+.nav-card {
+  flex: 1;
+  padding: 20px 22px;
+  border-radius: 1rem;
+  background: #1a1a1a; /* Fallback color */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform: translateY(20px); /* Vị trí bắt đầu cho animation */
+}
+
+.nav-card-label {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* LINKS */
+.nav-card-links {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-card-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.nav-card-link:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .card-nav-container {
+    top: 1rem;
+  }
+  .card-nav-content {
+    flex-direction: column;
+    padding-top: 0; /* Cách header một chút */
+  }
+  .nav-card {
+    min-height: 120px;
+  }
+  .logo-container {
+    /* Trên mobile có thể ẩn logo nếu vướng, hoặc chỉnh nhỏ lại */
+  }
+}

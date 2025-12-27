@@ -1,0 +1,150 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  overflow: hidden; /* Để không bị tràn các đốm màu nền */
+}
+
+/* Các đốm màu trang trí nền */
+.blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.blob1 {
+  top: -10%;
+  right: -10%;
+}
+.blob2 {
+  bottom: -10%;
+  left: -10%;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+}
+
+/* Stats Bar */
+.statsBar {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNumber {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #999;
+}
+
+.title {
+  font-family: serif;
+  font-size: clamp(3rem, 8vw, 4rem); /* Co giãn theo màn hình */
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.highlight {
+  color: #6366f1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  padding: 2.5rem;
+  border-radius: 2.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  background: white;
+  box-shadow: 0 30px 60px -12px rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  background: #f3f4f6;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.repoName {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.repoDesc {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  color: #1a1a1a;
+  gap: 0.5rem;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #6366f1;
+}

@@ -1,65 +1,159 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { motion, Variants } from "framer-motion";
+import { Facebook, Github, Linkedin, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
+import styles from "../app/CSS/Page.module.css";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 100, damping: 15 },
+  },
+};
+
+export default function Hero() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <section className={styles.heroSection}>
+      {/* BACKGROUND */}
+      <div className={styles.background}>
+        <div className={styles.gridPattern}></div>
+        <div className={styles.gradient1}></div>
+        <div className={styles.gradient2}></div>
+      </div>
+
+      {/* CONTENT */}
+      <div className={styles.mainContent}>
+        {/* AVATAR */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+          className={styles.avatarContainer}
+        >
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className={styles.avatarCard}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <div className={styles.innerGlow}></div>
+            <div className={styles.avatarImageContainer}>
+              <Image
+                src="/top.jpg"
+                alt="Nguyễn Khánh Toàn"
+                fill
+                priority
+                className={styles.avatarImage}
+              />
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* TEXT */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className={styles.textContent}
+        >
+          {/* WELCOME */}
+          <motion.span variants={itemVariants} className={styles.eyebrow}>
+            👋 Welcome to my website
+          </motion.span>
+
+          {/* TITLE */}
+          <motion.h1 variants={itemVariants} className={styles.mainHeading}>
+            Xin chào, tôi là <br />
+            <span className={styles.gradientText}>Nguyễn Khánh Toàn</span>
+          </motion.h1>
+
+          {/* DESCRIPTION */}
+          <motion.p variants={itemVariants} className={styles.description}>
+            Tôi là{" "}
+            <span className={styles.highlight}>Full-stack Developer</span> theo
+            định hướng{" "}
+            <span className={styles.highlight}>Hệ thống thông tin</span>, chuyên
+            xây dựng các ứng dụng với{" "}
+            <span className={styles.highlight}>Next.js, React</span> và{" "}
+            <span className={styles.highlight}>Node.js</span>. Mục tiêu của tôi
+            là tạo ra những hệ thống ổn định, dễ mở rộng và mang lại giá trị
+            thực cho doanh nghiệp.
+          </motion.p>
+
+          {/* BUTTONS */}
+          <motion.div
+            variants={itemVariants}
+            className={styles.buttonsContainer}
           >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <a href="/about" className={styles.primaryButton}>
+              Liên hệ với tôi
+              <ArrowRight className={styles.buttonIcon} size={20} />
+            </a>
+
+            <Link href="/projects" className={styles.secondaryButton}>
+              Xem dự án
+            </Link>
+          </motion.div>
+
+          {/* SOCIAL */}
+          <motion.div
+            variants={itemVariants}
+            className={styles.socialContainer}
+          >
+            {[
+              {
+                icon: Github,
+                label: "GitHub",
+                href: "https://github.com/khanhtoan1325",
+              },
+              {
+                icon: Linkedin,
+                label: "LinkedIn",
+                href: "https://linkedin.com",
+              },
+              {
+                icon: Facebook,
+                label: "Facebook",
+                href: "https://www.facebook.com/NGUYENKHANHTOAN1325/",
+              },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.a
+                  key={index}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -5, scale: 1.1 }}
+                  className={styles.socialLink}
+                  aria-label={item.label}
+                >
+                  <Icon size={26} strokeWidth={1.5} />
+                </motion.a>
+              );
+            })}
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
   );
 }

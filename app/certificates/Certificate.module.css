@@ -1,0 +1,266 @@
+.pageWrapper {
+  min-height: 100vh;
+  background-color: #f8fafc;
+  overflow: clip;
+  position: relative;
+}
+
+.page {
+  --nav-height: 80px;
+  position: relative;
+  z-index: 1;
+  padding: var(--nav-height) 24px 80px;
+  overflow: visible;
+}
+
+.bgGlow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+      circle at 15% 15%,
+      rgba(99, 102, 241, 0.08) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 85% 85%,
+      rgba(236, 72, 153, 0.05) 0%,
+      transparent 40%
+    );
+  animation: bgMove 20s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  margin: 40px 0 60px;
+  text-align: center;
+}
+
+.pageTitle {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 950;
+  letter-spacing: -0.05em;
+  color: #0f172a;
+  margin-bottom: 16px;
+  background: linear-gradient(180deg, #0f172a 0%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pageDesc {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 28px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  background: #fff;
+  border-color: #4f46e5;
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px -12px rgba(79, 70, 229, 0.12);
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.imageBox {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.card:hover .thumb {
+  transform: scale(1.05);
+}
+
+.statusBadge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.content {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.issuerName {
+  font-weight: 800;
+  color: #4f46e5;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.partnerName {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  display: block;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.courseTitle {
+  font-size: 1.4rem;
+  font-weight: 850;
+  color: #0f172a;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.certType {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.notesSection {
+  background: #f8fafc;
+  padding: 14px 18px;
+  border-radius: 20px;
+  border: 1px solid #f1f5f9;
+  margin-bottom: 24px;
+}
+
+.notesSection p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.recipientFooter {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userIcon {
+  width: 40px;
+  height: 40px;
+  background: #0f172a;
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 800;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1e293b;
+}
+
+.viewAction {
+  margin-left: auto;
+  color: #4f46e5;
+  font-weight: 900;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .page {
+    padding: 80px 16px 60px;
+  }
+  .header {
+    margin-top: 20px;
+  }
+}

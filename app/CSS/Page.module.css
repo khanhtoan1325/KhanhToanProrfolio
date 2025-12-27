@@ -1,0 +1,417 @@
+/* Hero Section */
+.heroSection {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  overflow: hidden;
+  background-color: #fafafa;
+}
+
+.dark .heroSection {
+  background-color: #050505;
+}
+
+/* Background Elements */
+.background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: url("/grid.svg");
+  background-position: center;
+  /* Fix: Thêm webkit prefix cho mask-image */
+  -webkit-mask-image: linear-gradient(180deg, white, rgba(255, 255, 255, 0));
+  mask-image: linear-gradient(180deg, white, rgba(255, 255, 255, 0));
+}
+
+.gradient1,
+.gradient2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+.gradient1 {
+  top: -10%;
+  left: -20%;
+  width: 70%;
+  height: 70%;
+  background-color: rgba(99, 102, 241, 0.2);
+}
+
+.dark .gradient1 {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.gradient2 {
+  bottom: -10%;
+  right: -20%;
+  width: 60%;
+  height: 60%;
+  background-color: rgba(192, 132, 252, 0.2);
+  animation-delay: 1s;
+}
+
+.dark .gradient2 {
+  background-color: rgba(192, 132, 252, 0.1);
+}
+
+/* Main Content */
+.mainContent {
+  position: relative;
+  max-width: 80rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .mainContent {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6rem;
+  }
+}
+
+/* Avatar Container */
+.avatarContainer {
+  display: flex;
+  justify-content: center;
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .avatarContainer {
+    justify-content: flex-end;
+    order: 1;
+  }
+}
+
+.avatarCard {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  padding: 0.5rem;
+  border-radius: 2.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+  /* Fix: Thêm webkit prefix cho backdrop-filter */
+  -webkit-backdrop-filter: blur(2rem);
+  backdrop-filter: blur(2rem);
+  box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .avatarCard {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0)
+  );
+  box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 1024px) {
+  .avatarCard {
+    width: 380px;
+    height: 380px;
+  }
+}
+
+.innerGlow {
+  position: absolute;
+  inset: 1rem;
+  border-radius: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.3),
+    rgba(192, 132, 252, 0.3)
+  );
+  filter: blur(1.5rem);
+  z-index: 0;
+}
+
+.avatarImageContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  overflow: hidden;
+  z-index: 10;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.dark .avatarImageContainer {
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.avatarImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.avatarImage:hover {
+  transform: scale(1.05);
+}
+
+/* Text Content */
+.textContent {
+  text-align: left;
+  order: 1;
+}
+
+@media (min-width: 768px) {
+  .textContent {
+    padding-left: 2rem;
+    order: 2;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #4f46e5;
+}
+
+.dark .eyebrow {
+  color: #818cf8;
+}
+
+.mainHeading {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #18181b;
+  margin: 0;
+}
+
+.dark .mainHeading {
+  color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .mainHeading {
+    font-size: 4.5rem;
+  }
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  /* Fix: Đảm bảo có đủ prefixes cho gradient text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.dark .gradientText {
+  background: linear-gradient(135deg, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.description {
+  margin-top: 2rem;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #52525b;
+  max-width: 36rem;
+  margin-bottom: 0;
+}
+
+.dark .description {
+  color: #a1a1aa;
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: 1.25rem;
+  }
+}
+
+.highlight {
+  font-weight: 600;
+  color: #27272a;
+}
+
+.dark .highlight {
+  color: #e4e4e7;
+}
+
+/* Buttons */
+.buttonsContainer {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  /* Fix: Thêm vendor prefixes cho transition */
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.primaryButton {
+  background-color: #18181b;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+}
+
+.dark .primaryButton {
+  background-color: #ffffff;
+  color: #18181b;
+}
+
+.primaryButton:hover {
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+}
+
+.secondaryButton {
+  border: 2px solid #e4e4e7;
+  background-color: #ffffff;
+  color: #3f3f46;
+  /* Fix: Thêm webkit prefix cho backdrop-filter */
+  -webkit-backdrop-filter: blur(0.5rem);
+  backdrop-filter: blur(0.5rem);
+}
+
+.dark .secondaryButton {
+  border: 2px solid #27272a;
+  background-color: rgba(24, 24, 27, 0.5);
+  color: #d4d4d8;
+}
+
+.secondaryButton:hover {
+  border-color: #4f46e5;
+  color: #4f46e5;
+}
+
+.dark .secondaryButton:hover {
+  border-color: #818cf8;
+  color: #818cf8;
+}
+
+.buttonIcon {
+  transition: transform 0.3s ease;
+  /* Fix: Thêm vendor prefixes cho transition */
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+}
+
+.primaryButton:hover .buttonIcon {
+  transform: translateX(4px);
+  /* Fix: Thêm vendor prefixes cho transform */
+  -webkit-transform: translateX(4px);
+  -moz-transform: translateX(4px);
+  -ms-transform: translateX(4px);
+  -o-transform: translateX(4px);
+}
+
+/* Social Icons */
+.socialContainer {
+  margin-top: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.socialLink {
+  color: #71717a;
+  transition: color 0.3s ease;
+  /* Fix: Thêm vendor prefixes cho transition */
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dark .socialLink {
+  color: #a1a1aa;
+}
+
+.socialLink:hover {
+  color: #4f46e5;
+}
+
+.dark .socialLink:hover {
+  color: #818cf8;
+}
+
+/* Animations */
+@keyframes pulseSlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Fix: Thêm keyframes với vendor prefixes */
+@-webkit-keyframes pulseSlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@-moz-keyframes pulseSlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@-o-keyframes pulseSlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}

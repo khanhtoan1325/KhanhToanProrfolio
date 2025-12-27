@@ -11,7 +11,7 @@ export type Certificate = {
   image: string;
   notes?: string;
 };
-
+// Github Copilot generated this data based on your certificates
 export const certificates: Certificate[] = [
   {
     id: "cisco-js-essentials-1",

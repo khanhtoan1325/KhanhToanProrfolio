@@ -48,7 +48,11 @@ export default function AboutPage() {
           </div>
 
           <div className={styles.photoWrapper}>
-            <img src="/top.jpg" alt="Profile" className={styles.profileImg} />
+            <img
+              src="/unnamed.jpg"
+              alt="Profile"
+              className={styles.profileImg}
+            />
           </div>
         </div>
 

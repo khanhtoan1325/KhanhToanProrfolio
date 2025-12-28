@@ -76,7 +76,12 @@ export default function ProjectsPage() {
                 <h2 className={styles.projectTitle}>{p.title}</h2>
                 <p className={styles.projectDesc}>{p.description}</p>
 
-                <Link href={p.href} className={styles.link}>
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.link}
+                >
                   Xem chi tiết
                   <svg
                     width="20"
@@ -89,7 +94,7 @@ export default function ProjectsPage() {
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
-                </Link>
+                </a>
               </div>
             </motion.article>
           ))}

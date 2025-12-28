@@ -71,9 +71,9 @@ export default function Navbar({
           </div>
 
           {/* CTA Button */}
-          <Link href={buttonHref} className="card-nav-cta-button">
+          <a href={buttonHref} download className="card-nav-cta-button">
             {buttonLabel}
-          </Link>
+          </a>
         </div>
 
         {/* Content Section (Dropdown) */}
@@ -84,7 +84,7 @@ export default function Navbar({
               ref={setCardRef(idx)}
               className="nav-card"
               style={{
-                background: item.bgColor, 
+                background: item.bgColor,
                 color: item.textColor,
               }}
             >

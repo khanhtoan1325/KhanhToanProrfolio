@@ -58,7 +58,7 @@ export default function Hero() {
             <div className={styles.innerGlow}></div>
             <div className={styles.avatarImageContainer}>
               <Image
-                src="/top.jpg"
+                src="/unnamed.jpg"
                 alt="Nguyễn Khánh Toàn"
                 fill
                 priority

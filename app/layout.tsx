@@ -71,7 +71,7 @@ export default function RootLayout({
           logo="/next.svg"
           items={navItems}
           buttonLabel="Tải CV"
-          buttonHref="/cv.pdf"
+          buttonHref="/NguyenKhanhToan.pdf"
         />
 
         <main className="relative z-0 min-h-screen pt-32 px-4 sm:px-8 max-w-7xl mx-auto">

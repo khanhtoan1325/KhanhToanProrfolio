@@ -21,7 +21,7 @@ export const certificates: Certificate[] = [
     issuer: "Cisco Networking Academy",
     partner: "OpenEDG JavaScript Institute (JS Institute)",
     issuedDate: "29/11/2025",
-    image: "/javaScript1.png",
+    image: "/java1.png",
     notes:
       "Student level credential - hoàn thành khóa JavaScript Essentials 1 (Cisco NetAcad + JS Institute).",
   },
@@ -33,7 +33,7 @@ export const certificates: Certificate[] = [
     issuer: "Cisco Networking Academy",
     partner: "OpenEDG JavaScript Institute (JS Institute)",
     issuedDate: "09/12/2025",
-    image: "/javaScript2.png",
+    image: "/java2.png",
     notes:
       "Student level credential - hoàn thành khóa JavaScript Essentials 2 (Cisco NetAcad + JS Institute).",
   },

@@ -21,6 +21,7 @@ interface NavItem {
 
 interface NavbarProps {
   logo?: string; // Làm optional để tránh lỗi nếu quên truyền
+  logoText?: string;
   items: NavItem[];
   buttonLabel?: string;
   buttonHref?: string;
@@ -28,6 +29,7 @@ interface NavbarProps {
 
 export default function Navbar({
   logo = "/logo.png", // Default value
+  logoText,
   items,
   buttonLabel = "Get Started",
   buttonHref = "#",
@@ -59,15 +61,15 @@ export default function Navbar({
 
           {/* Logo */}
           <div className="logo-container">
-            {/* Sử dụng Next/Image để tối ưu hoặc thẻ img thường nếu logo là SVG external */}
-            <Image
+            <span className="logo-text">{logoText}</span>
+            {/* <Image
               src={logo}
               alt="Brand Logo"
               width={100}
               height={30}
               className="object-contain h-8 w-auto"
               priority
-            />
+            /> */}
           </div>
 
           {/* CTA Button */}

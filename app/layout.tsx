@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 // 2. Cập nhật Metadata cho chuẩn SEO Portfolio
 export const metadata: Metadata = {
-  title: "Nguyễn Khánh Toàn",
+  title: "Nguyễn Khánh Toàn - Data Engineer & Developer",
   description: "Website cá nhân của Nguyễn Khánh Toàn",
   icons: {
     icon: "/favicon.ico",
@@ -68,7 +68,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}
       >
         <Navbar
-          logo="/toan.png"
+          logoText="TOAN NGUYEN"
           items={navItems}
           buttonLabel="Tải CV"
           buttonHref="/NguyenKhanhToan.pdf"

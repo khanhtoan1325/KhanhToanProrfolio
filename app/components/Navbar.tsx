@@ -22,6 +22,7 @@ interface NavItem {
 interface NavbarProps {
   logo?: string; // Làm optional để tránh lỗi nếu quên truyền
   logoText?: string;
+  logoSubText?: string;
   items: NavItem[];
   buttonLabel?: string;
   buttonHref?: string;
@@ -30,6 +31,7 @@ interface NavbarProps {
 export default function Navbar({
   logo = "/logo.png", // Default value
   logoText,
+  logoSubText,
   items,
   buttonLabel = "Get Started",
   buttonHref = "#",
@@ -62,6 +64,7 @@ export default function Navbar({
           {/* Logo */}
           <div className="logo-container">
             <span className="logo-text">{logoText}</span>
+            {logoSubText && <span className="logo-subtext">{logoSubText}</span>}
             {/* <Image
               src={logo}
               alt="Brand Logo"

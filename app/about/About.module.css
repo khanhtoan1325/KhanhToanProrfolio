@@ -1,527 +1,339 @@
+/* =========================
+   About.module.css (NO DARK MODE)
+   ========================= */
+
 /* ===== CONTAINER ===== */
 .container {
   min-height: 100vh;
-  background: radial-gradient(
-      1200px 600px at 20% 20%,
-      rgba(99, 102, 241, 0.12),
-      transparent 60%
-    ),
-    radial-gradient(
-      1000px 500px at 80% 30%,
-      rgba(168, 85, 247, 0.12),
-      transparent 60%
-    ),
-    linear-gradient(180deg, #f8f9ff, #ffffff);
-  overflow: hidden;
+  background: linear-gradient(180deg, #fafafa 0%, #f4f4f5 50%, #e4e4e7 100%);
+  padding: 7.5rem 1rem 2rem;
   color: #111827;
   position: relative;
+  overflow: hidden;
 }
 
-/* ===== BLOBS ===== */
-.blob {
+/* Background blobs */
+.container::before {
+  content: "";
   position: absolute;
-  width: 900px;
-  height: 900px;
-  filter: blur(180px);
-  pointer-events: none;
+  top: -50%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.15), transparent 70%);
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: float 20s ease-in-out infinite;
   z-index: 0;
 }
 
-.blobLeft {
-  top: -30%;
+.container::after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
   left: -20%;
+  width: 700px;
+  height: 700px;
   background: radial-gradient(
     circle,
-    rgba(99, 102, 241, 0.25),
+    rgba(236, 72, 153, 0.15),
     transparent 70%
   );
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: float 25s ease-in-out infinite reverse;
+  z-index: 0;
 }
 
-.blobRight {
-  bottom: -30%;
-  right: -20%;
-  background: radial-gradient(
-    circle,
-    rgba(168, 85, 247, 0.25),
-    transparent 70%
-  );
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
+  }
 }
 
 /* ===== WRAPPER ===== */
 .wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 0;
   position: relative;
   z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 6rem 2rem 4rem;
 }
 
-/* ===== HERO ===== */
-.heroSection {
+/* ===== HEADER ===== */
+.header {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 4rem;
-  margin-bottom: 6rem;
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
-.mainTitle {
-  font-size: clamp(3.5rem, 8vw, 6rem);
-  color: #111827;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.whiteText {
-  background: linear-gradient(90deg, #6366f1, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gradientText {
-  background: linear-gradient(90deg, #6366f1, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.subText {
-  color: #4b5563;
-  max-width: 500px;
-  line-height: 1.8;
-  margin: 2rem 0;
-}
-
-.buttonGroup {
+.profileSection {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 2rem;
 }
 
-.primaryBtn {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  border: none;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.secondaryBtn {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  color: rgb(255, 255, 255);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  cursor: pointer;
-}
-
-/* ===== IMAGE ===== */
-.photoWrapper {
-  background: white;
-  box-shadow: 0 40px 80px rgba(99, 101, 241, 0);
-  border-radius: 1.5rem;
-  width: 100%;
+/* Avatar */
+.imageWrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
   overflow: hidden;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed, #ec4899);
+  padding: 3px;
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.profileImg {
+.imageWrapper:hover {
+  transform: scale(1.05) rotate(4deg);
+  box-shadow: 0 15px 40px rgba(79, 70, 229, 0.5);
+}
+
+.profileImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 999px;
+  transition: transform 0.35s ease;
 }
 
-/* ===== INFO GRID ===== */
-.infoGrid {
+.imageWrapper:hover .profileImage {
+  transform: scale(1.08);
+}
+
+.profileInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.03em;
+}
+
+.role {
+  font-size: 1.125rem;
+  color: #6366f1;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* ===== QUOTE CARD ===== */
+.quoteCard {
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.08) 0%,
+    rgba(139, 92, 246, 0.08) 50%,
+    rgba(236, 72, 153, 0.08) 100%
+  );
+  border: 1px solid rgba(79, 70, 229, 0.22);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.quoteCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 34px rgba(79, 70, 229, 0.16);
+  border-color: rgba(79, 70, 229, 0.35);
+}
+
+.quote {
+  font-size: 1.125rem;
+  font-style: italic;
+  color: #374151;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== MAIN GRID ===== */
+.mainGrid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
-/* ===== GLASS CARD ===== */
-/* Nâng cấp Glass Card chung */
-.glassCard {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(50, 48, 199, 0.4); /* Viền trắng sáng hơn */
-  border-radius: 2rem;
-  padding: 2.5rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease;
+@media (min-width: 768px) {
+  .mainGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Contact card spans full width */
+  .mainGrid > :nth-child(3) {
+    grid-column: 1 / -1;
+  }
 }
 
+/* ===== CARD ===== */
+.card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.92),
+    rgba(255, 255, 255, 0.72)
+  );
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(79, 70, 229, 0.16);
+  border-radius: 20px;
+  padding: 2rem;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 22px 44px rgba(79, 70, 229, 0.18);
+  border-color: rgba(79, 70, 229, 0.36);
+}
+
+/* ===== CARD TITLE ===== */
 .cardTitle {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 2rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.02em;
 }
 
-/* Biểu tượng trong tiêu đề */
 .cardTitle svg {
   color: #6366f1;
 }
 
-/* ===== SKILLS GRID ===== */
-.skillGrid {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(200px, 1fr)
-  ); /* Tự thích ứng kích thước */
-  gap: 1rem;
-}
-
-.skillItem {
-  background: white;
-  border: 1px solid rgba(99, 102, 241, 0.1);
-  padding: 1rem 1.25rem;
-  border-radius: 1.25rem;
-  display: flex;
-  flex-direction: column; /* Đổi sang dọc để chuyên nghiệp hơn */
-  gap: 0.25rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.skillItem:hover {
-  transform: translateY(-5px);
-  background: #ffffff;
-  border-color: #6366f1;
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.12);
-}
-
-/* Hiệu ứng vệt màu khi hover */
-.skillItem::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 0;
-  background: linear-gradient(to bottom, #6366f1, #ec4899);
-  transition: height 0.3s ease;
-}
-
-.skillItem:hover::before {
-  height: 100%;
-}
-
-.skillItem span {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #6b7280; /* Màu text phụ */
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.skillItem strong {
-  font-size: 1.05rem;
-  color: #111827; /* Màu text chính đậm hơn */
-  transition: color 0.3s ease;
-}
-
-.skillItem:hover strong {
-  color: #6366f1; /* Đổi màu khi hover */
-}
-
-/* ===== CONTACT ===== */
-.contactList {
-  display: flex;
-  flex-direction: column;
-  gap: 1.3rem;
-}
-
-.contactItem {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
+/* ===== ABOUT TEXT ===== */
+.aboutText {
   font-size: 1rem;
-  color: #1f2937; /* đậm hơn */
-  transition: all 0.3s ease;
-}
-
-.contactItem a {
-  color: #121518;
-  text-decoration: none;
-}
-/* CONTACT CARD */
-/* Container chính của Contact List */
-.contactList {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* Từng dòng liên hệ */
-.contactItem {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.85rem 1.25rem;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(99, 102, 241, 0.1);
-  border-radius: 1rem;
-  font-size: 0.95rem;
+  line-height: 1.8;
   color: #4b5563;
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  position: relative;
-  overflow: hidden;
-  text-decoration: none; /* Cho các thẻ a bên trong */
-}
-
-/* Icon */
-.contactItem svg {
-  color: #6366f1;
-  transition: all 0.4s ease;
-  z-index: 2;
-}
-
-/* Text */
-.contactItem a,
-.contactItem span {
-  color: inherit;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  z-index: 2;
-}
-
-/* Hiệu ứng HOVER */
-.contactItem:hover {
-  transform: translateX(10px);
-  background: white;
-  border-color: #6366f1;
-  color: #6366f1;
-  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.1);
-}
-
-.contactItem:hover svg {
-  transform: scale(1.2) rotate(-10deg);
-  color: #ec4899; /* Đổi màu icon sang hồng khi hover */
-}
-
-/* Hiệu ứng vết sáng chạy qua khi hover */
-.contactItem::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(99, 102, 241, 0.05),
-    transparent
-  );
-  transition: 0.5s;
-}
-
-.contactItem:hover::after {
-  left: 100%;
-}
-/* ===== EDUCATION ===== */
-.educationCard {
-  margin-top: 4rem;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  border-radius: 2rem;
-  padding: 2.5rem;
-  border: 1px solid rgba(99, 102, 241, 0.1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
-}
-
-.educationItem {
-  margin-top: 2rem;
-  display: flex;
-  gap: 2rem;
-  position: relative;
-  padding-bottom: 1rem;
-}
-
-/* Đường kẻ nối Timeline */
-.educationItem::before {
-  content: "";
-  position: absolute;
-  left: 6px; /* Căn giữa với dot */
-  top: 1.5rem;
-  bottom: -1rem;
-  width: 2px;
-  background: linear-gradient(to bottom, #6366f1, transparent);
-  opacity: 0.5;
-}
-
-/* Loại bỏ đường kẻ ở item cuối cùng */
-.educationItem:last-child::before {
-  display: none;
-}
-
-.dot {
-  width: 14px;
-  height: 14px;
-  background: #6366f1;
-  border-radius: 50%;
-  margin-top: 0.4rem;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
-  transition: all 0.3s ease;
-}
-
-.educationItem:hover .dot {
-  background: #ec4899;
-  box-shadow: 0 0 0 6px rgba(236, 72, 153, 0.2),
-    0 0 15px rgba(236, 72, 153, 0.5);
-  transform: scale(1.2);
-}
-
-.educationContent {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.educationContent strong {
-  font-size: 1.2rem;
-  color: #111827;
-  transition: color 0.3s ease;
-}
-
-.educationItem:hover strong {
-  color: #6366f1;
-}
-
-.educationContent p {
-  color: #4b5563;
-  font-size: 1rem;
   margin: 0;
 }
 
-.statusTag {
-  display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.25rem 0.75rem;
+.aboutText strong {
+  color: #111827;
+  font-weight: 850;
+}
+
+/* ===== SKILLS GRID ===== */
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skillTag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.5rem 0.95rem;
+  border-radius: 999px;
+
   background: rgba(99, 102, 241, 0.1);
+  color: #4f46e5;
+  border: 1px solid rgba(99, 102, 241, 0.22);
+
+  font-size: 0.9rem;
+  font-weight: 750;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.skillTag:hover {
+  background: #6366f1;
+  color: #ffffff;
+  border-color: #6366f1;
+  transform: translateY(-2px);
+}
+
+/* ===== CONTACT GRID ===== */
+.contactGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  padding: 0.85rem 0.95rem;
+  border-radius: 12px;
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  color: #4b5563;
+
+  font-size: 0.95rem;
+  transition: transform 0.22s ease, background 0.22s ease,
+    border-color 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.contactLink svg {
+  flex-shrink: 0;
   color: #6366f1;
-  font-size: 0.75rem;
-  font-weight: 700;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  width: fit-content;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.contactLink:hover {
+  transform: translateX(6px);
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.28);
+  color: #4f46e5;
+  box-shadow: 0 10px 22px rgba(79, 70, 229, 0.12);
+}
+
+.contactLink:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.35);
+  outline-offset: 3px;
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 992px) {
-  .heroSection {
-    grid-template-columns: 1fr;
+@media (max-width: 640px) {
+  .profileSection {
+    flex-direction: column;
     text-align: center;
+    gap: 1.25rem;
   }
 
-  .infoGrid {
-    grid-template-columns: 1fr;
+  .name {
+    font-size: 1.9rem;
   }
 
-  .buttonGroup {
+  .location {
     justify-content: center;
   }
-}
-/* Thêm vào file CSS của bạn */
-.slogan {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #6366f1; /* Màu tím Indigo đồng bộ với theme */
-  letter-spacing: 0.05rem;
-  margin-top: 1rem;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
 
-/* Điều chỉnh lại responsive một chút cho mobile */
-@media (max-width: 992px) {
-  .slogan {
-    text-align: center;
-  }
-}
-.slogan {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #4b5563; /* Màu xám đậm cho nội dung câu nói */
-  font-style: italic;
-  margin-top: 1.5rem;
-  max-width: 500px;
-}
-
-.author {
-  display: block;
-  margin-top: 0.5rem;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 0.95rem;
-  /* Sử dụng gradient giống như tiêu đề của bạn */
-  background: linear-gradient(90deg, #6366f1, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Căn giữa khi ở màn hình nhỏ */
-@media (max-width: 992px) {
-  .slogan {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-/* Khung bao quanh câu slogan */
-.sloganContainer {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  max-width: fit-content; /* Khung vừa vặn với nội dung */
-  background: rgba(99, 102, 241, 0.03); /* Nền xanh tím cực nhẹ */
-  border-left: 4px solid #6366f1; /* Thanh nhấn bên trái */
-  border-radius: 0.75rem;
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(99, 102, 241, 0.1);
-  border-right: 1px solid rgba(99, 102, 241, 0.1);
-  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-}
-
-.slogan {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: #4b5563;
-  font-style: italic;
-  margin: 0; /* Loại bỏ margin mặc định để khung khít hơn */
-}
-
-.author {
-  display: block;
-  margin-top: 0.75rem;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 0.85rem;
-  /* Chữ tác giả màu Gradient */
-  background: linear-gradient(90deg, #6366f1, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-/* Căn chỉnh cho Mobile */
-@media (max-width: 992px) {
-  .sloganContainer {
-    margin-left: auto;
-    margin-right: auto;
-    border-left: none;
-    border-bottom: 3px solid #6366f1; /* Đổi thanh nhấn xuống dưới cho cân bằng */
-    text-align: center;
+  .card {
+    padding: 1.6rem;
   }
 }

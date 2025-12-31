@@ -25,10 +25,18 @@
   font-family: var(--font-geist-sans), system-ui, -apple-system, "Segoe UI",
     Roboto, Arial, sans-serif;
   font-weight: 900;
-  font-size: 40px;
+
+  /* ✅ tự co giãn theo màn hình */
+  font-size: clamp(18px, 4.5vw, 40px);
+
   letter-spacing: -0.04em;
   line-height: 1;
   white-space: nowrap;
+
+  /* ✅ tránh tràn/đè nút trên mobile */
+  max-width: 60vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   background: linear-gradient(90deg, #111, #6366f1);
   -webkit-background-clip: text;

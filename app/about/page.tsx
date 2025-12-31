@@ -1,150 +1,156 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import {
-  Bolt,
+  Code2,
   Mail,
   Phone,
   Github,
-  Facebook,
-  GraduationCap,
+  Linkedin,
+  MapPin,
+  Briefcase,
 } from "lucide-react";
 import styles from "./About.module.css";
 
 export default function AboutPage() {
   return (
     <section className={styles.container}>
-      {/* Background blobs */}
-      <div className={`${styles.blob} ${styles.blobLeft}`} />
-      <div className={`${styles.blob} ${styles.blobRight}`} />
-
       <motion.div
         className={styles.wrapper}
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        {/* ===== HERO ===== */}
-        <div className={styles.heroSection}>
-          <div>
-            <h1 className={styles.mainTitle}>
-              Bridge <br />
-              <span className={styles.whiteText}>Business</span> <br />
-              With <br />
-              <span className={styles.gradientText}>Technology</span>
-            </h1>
-
-            <p className={styles.subText}>
-              Tôi là sinh viên năm cuôi ngành Hệ Thống Thông Tin tại Đại Học
-              Công Nghệ TP.HCM. Với kinh nghiệm làm việc trong lĩnh vực Chuyên
-              Viên Hỗ Trợ Kỹ Thuật -Xử Lý Dữ Liệu Đơn Hàng, tôi đam mê việc sử
-              dụng công nghệ để giải quyết các thách thức kinh doanh và tối ưu
-              hóa quy trình làm việc. Tôi mong muốn kết nối và hợp tác với các
-              chuyên gia trong ngành để cùng nhau phát triển các giải pháp sáng
-              tạo và hiệu quả.
-            </p>
-            <div className={styles.sloganContainer}>
-              <p className={styles.slogan}>
-                “Data is a precious thing and will last longer than the systems
-                themselves.”
-                <br />
-                <span className={styles.author}>Tim Berners-Lee</span>
-              </p>
+        {/* Header Section */}
+        <div className={styles.header}>
+          <motion.div
+            className={styles.profileSection}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className={styles.imageWrapper}>
+              <img
+                src="/unnamed.jpg"
+                alt="Nguyễn Khánh Toàn"
+                className={styles.profileImage}
+              />
             </div>
-          </div>
+            <div className={styles.profileInfo}>
+              <h1 className={styles.name}>Nguyễn Khánh Toàn</h1>
+              <p className={styles.role}>Data Engineering Student</p>
+              <div className={styles.location}>
+                <MapPin size={16} />
+                <span>TP. Hồ Chí Minh, Việt Nam</span>
+              </div>
+            </div>
+          </motion.div>
 
-          <div className={styles.photoWrapper}>
-            <img
-              src="/unnamed.jpg"
-              alt="Profile"
-              className={styles.profileImg}
-            />
-          </div>
+          <motion.div
+            className={styles.quoteCard}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <p className={styles.quote}>
+              "Muốn Thành Công thì Phải Chấp Nhận Thất Bại"
+            </p>
+          </motion.div>
         </div>
 
-        {/* ===== INFO GRID ===== */}
-        <div className={styles.infoGrid}>
-          {/* ===== CHUYÊN MÔN ===== */}
-          <div className={styles.glassCard}>
+        {/* Main Grid */}
+        <div className={styles.mainGrid}>
+          {/* About Card */}
+          <motion.div
+            className={styles.card}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
             <h2 className={styles.cardTitle}>
-              <Bolt size={22} /> Chuyên Môn
+              <Briefcase size={20} />
+              Giới thiệu
             </h2>
+            <p className={styles.aboutText}>
+              Sinh viên năm cuối ngành <strong>Hệ Thống Thông Tin</strong> tại
+              Đại Học Công Nghệ TP.HCM (HUTECH). Định hướng{" "}
+              <strong>Data Engineering</strong>, tập trung vào xây dựng pipeline
+              dữ liệu, ETL/ELT và xử lý dữ liệu quy mô lớn.
+            </p>
+          </motion.div>
 
-            <div className={styles.skillGrid}>
+          {/* Skills Card */}
+          <motion.div
+            className={styles.card}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <h2 className={styles.cardTitle}>
+              <Code2 size={20} />
+              Kỹ năng
+            </h2>
+            <div className={styles.skillsGrid}>
               {[
-                ["Node.js", "Backend & API"],
-                ["React", "Frontend UI"],
-                ["JavaScript", "Core Language"],
-                ["MySQL", "Relational Database"],
-                ["SQL Server", "Enterprise Database"],
-                ["Python", "Data Processing"],
-                ["Java", "OOP Backend"],
-              ].map(([name, desc]) => (
-                <div key={name} className={styles.skillItem}>
-                  <span>{name}</span>
-                  <strong>{desc}</strong>
-                </div>
+                "Python",
+                "SQL",
+                "Node.js",
+                "React",
+                "MySQL",
+                "SQL Server",
+                "ETL/ELT",
+                "Data Pipeline",
+              ].map((skill) => (
+                <span key={skill} className={styles.skillTag}>
+                  {skill}
+                </span>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* ===== LIÊN HỆ ===== */}
-          <div className={styles.glassCard}>
+          {/* Contact Card */}
+          <motion.div
+            className={styles.card}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
             <h2 className={styles.cardTitle}>
-              <Mail size={22} /> Liên Hệ
+              <Mail size={20} />
+              Liên hệ
             </h2>
-
-            <div className={styles.contactList}>
-              <div className={styles.contactItem}>
-                <Mail size={18} />
-                nguyenkhanhtoan1325@gmail.com
-              </div>
-              <div className={styles.contactItem}>
-                <Phone size={18} />
-                +84 777 581 439
-              </div>
-              <div className={styles.contactItem}>
-                <Github size={18} />
-                <a
-                  href="https://github.com/khanhtoan1325"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </div>
-              <div className={styles.contactItem}>
-                <Facebook size={18} />
-                <a
-                  href="https://www.facebook.com/NGUYENKHANHTOAN1325"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Nguyễn Khánh Toàn
-                </a>
-              </div>
+            <div className={styles.contactGrid}>
+              <a
+                href="mailto:nguyenkhanhtoan1325@gmail.com"
+                className={styles.contactLink}
+              >
+                <Mail size={16} />
+                <span>nguyenkhanhtoan1325@gmail.com</span>
+              </a>
+              <a href="tel:+84777581439" className={styles.contactLink}>
+                <Phone size={16} />
+                <span>+84 777 581 439</span>
+              </a>
+              <a
+                href="https://github.com/khanhtoan1325"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                <Github size={16} />
+                <span>GitHub</span>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.contactLink}
+              >
+                <Linkedin size={16} />
+                <span>LinkedIn</span>
+              </a>
             </div>
-          </div>
-        </div>
-
-        {/* ===== HỌC VẤN ===== */}
-        <div className={styles.educationCard}>
-          <h2 className={styles.cardTitle}>
-            <GraduationCap size={22} /> Học Vấn
-          </h2>
-
-          <div className={styles.educationItem}>
-            <span className={styles.dot} />
-            <div className={styles.educationContent}>
-              <strong>Trường Đại Học Công Nghệ TP.HCM</strong>
-              <p>Đang theo học Hệ Thống Thông Tin Và Ứng Dụng.</p>
-              <p> - Phân tích – Thiết kế – Xây dựng hệ thống phần mềm.</p>
-              <span className={styles.statusTag}>Đang học</span>
-            </div>
-          </div>
-
-          {/* Bạn có thể thêm các mốc học tập khác ở đây */}
+          </motion.div>
         </div>
       </motion.div>
     </section>

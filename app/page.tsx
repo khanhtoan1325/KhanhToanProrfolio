@@ -89,14 +89,21 @@ export default function Hero() {
           {/* DESCRIPTION */}
           <motion.p variants={itemVariants} className={styles.description}>
             Tôi là{" "}
-            <span className={styles.highlight}>Full-stack Developer</span> theo
-            định hướng{" "}
-            <span className={styles.highlight}>Hệ thống thông tin</span>, chuyên
-            xây dựng các ứng dụng với{" "}
-            <span className={styles.highlight}>Next.js, React</span> và{" "}
-            <span className={styles.highlight}>Node.js</span>. Mục tiêu của tôi
-            là tạo ra những hệ thống ổn định, dễ mở rộng và mang lại giá trị
-            thực cho doanh nghiệp.
+            <span className={styles.highlight}>
+              sinh viên năm 4 ngành Hệ thống Thông tin
+            </span>{" "}
+            và đang định hướng theo{" "}
+            <span className={styles.highlight}>Data Engineer</span>. Tôi tập
+            trung học và thực hành xây dựng{" "}
+            <span className={styles.highlight}>pipeline dữ liệu</span>,{" "}
+            <span className={styles.highlight}>ETL/ELT</span> và xử lý dữ liệu
+            với <span className={styles.highlight}>Python</span>,{" "}
+            <span className={styles.highlight}>SQL</span> và{" "}
+            <span className={styles.highlight}>Spark</span>. Mục tiêu của tôi là
+            phát triển nền tảng vững chắc để tạo ra các hệ thống dữ liệu{" "}
+            <span className={styles.highlight}>ổn định, dễ mở rộng</span> và
+            mang lại <span className={styles.highlight}>giá trị thực</span> cho
+            doanh nghiệp.
           </motion.p>
 
           {/* BUTTONS */}
@@ -105,7 +112,7 @@ export default function Hero() {
             className={styles.buttonsContainer}
           >
             <a href="/about" className={styles.primaryButton}>
-              Liên hệ với tôi
+              Thông Tin Về Tôi
               <ArrowRight className={styles.buttonIcon} size={20} />
             </a>
 

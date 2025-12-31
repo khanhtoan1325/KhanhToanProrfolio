@@ -350,3 +350,119 @@
     height: 400px;
   }
 }
+/* ===== ADDITIONS (paste at bottom) - DO NOT MODIFY OLD CSS ===== */
+
+/* HERO CONTENT (missing) */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.heroContent p {
+  margin: 0;
+  color: #a1a1aa;
+}
+
+.breadcrumb span {
+  color: #52525b;
+}
+
+.breadcrumb p {
+  margin: 0;
+  color: #a1a1aa;
+  font-weight: 600;
+}
+
+/* Author meta text */
+.authorMeta strong {
+  display: block;
+  font-weight: 800;
+  color: #e4e4e7;
+  line-height: 1.2;
+}
+
+.authorMeta p {
+  margin: 4px 0 0 0;
+  font-size: 0.9rem;
+  color: #71717a;
+}
+
+/* MAIN ARTICLE / RICH TEXT (missing) */
+.mainArticle {
+  position: relative;
+}
+
+.richText {
+  position: relative;
+  z-index: 1;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #d4d4d8;
+}
+
+/* Paragraph spacing */
+.richText p {
+  margin: 18px 0;
+}
+
+/* H3 styles (you use many <h3>) */
+.richText h3 {
+  margin: 50px 0 16px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #e4e4e7;
+  letter-spacing: -0.02em;
+}
+
+/* Normal UL lists in content (TOC, Projects...) */
+.richText ul {
+  margin: 16px 0 24px;
+  padding-left: 22px;
+}
+
+.richText ul li {
+  margin: 10px 0;
+  color: #cbd5e1;
+}
+
+.richText ul li strong {
+  color: #ffffff;
+}
+
+/* Links inside article */
+.richText a {
+  color: #a855f7;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.richText a:hover {
+  text-decoration: underline;
+}
+
+/* Make images inside article look consistent (if you add later) */
+.richText img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Modern quote polish for smaller screens */
+@media (max-width: 768px) {
+  .leadCard {
+    padding: 26px;
+    font-size: 1.15rem;
+    margin-bottom: 50px;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+    margin: 60px 0 22px;
+  }
+
+  .modernQuote p {
+    font-size: 1.25rem;
+  }
+}

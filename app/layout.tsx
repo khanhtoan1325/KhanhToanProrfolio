@@ -68,7 +68,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}
       >
         <Navbar
-          logo="/next.svg"
+          logo="/toan.png"
           items={navItems}
           buttonLabel="Tải CV"
           buttonHref="/NguyenKhanhToan.pdf"

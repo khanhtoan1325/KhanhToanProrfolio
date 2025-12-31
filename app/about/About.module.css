@@ -72,7 +72,9 @@
 }
 
 .whiteText {
-  color: white;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .gradientText {
@@ -104,8 +106,8 @@
 }
 
 .secondaryBtn {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: rgb(255, 255, 255);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1rem 2rem;
   border-radius: 12px;
@@ -135,39 +137,94 @@
 }
 
 /* ===== GLASS CARD ===== */
+/* Nâng cấp Glass Card chung */
 .glassCard {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(24px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(50, 48, 199, 0.4); /* Viền trắng sáng hơn */
   border-radius: 2rem;
   padding: 2.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
 }
 
 .cardTitle {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 1.5rem;
+  gap: 0.75rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1f2937;
   margin-bottom: 2rem;
 }
 
-/* ===== SKILLS ===== */
+/* Biểu tượng trong tiêu đề */
+.cardTitle svg {
+  color: #6366f1;
+}
+
+/* ===== SKILLS GRID ===== */
 .skillGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); /* Tự thích ứng kích thước */
+  gap: 1rem;
 }
 
 .skillItem {
-  background: rgba(0, 0, 0, 0.04);
-  padding: 1.2rem 1.5rem;
-  border-radius: 1rem;
+  background: white;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  padding: 1rem 1.25rem;
+  border-radius: 1.25rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /* Đổi sang dọc để chuyên nghiệp hơn */
+  gap: 0.25rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.skillItem:hover {
+  transform: translateY(-5px);
+  background: #ffffff;
+  border-color: #6366f1;
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.12);
+}
+
+/* Hiệu ứng vệt màu khi hover */
+.skillItem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(to bottom, #6366f1, #ec4899);
+  transition: height 0.3s ease;
+}
+
+.skillItem:hover::before {
+  height: 100%;
+}
+
+.skillItem span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #6b7280; /* Màu text phụ */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .skillItem strong {
-  color: #60a5fa;
+  font-size: 1.05rem;
+  color: #111827; /* Màu text chính đậm hơn */
+  transition: color 0.3s ease;
+}
+
+.skillItem:hover strong {
+  color: #6366f1; /* Đổi màu khi hover */
 }
 
 /* ===== CONTACT ===== */
@@ -191,43 +248,172 @@
   text-decoration: none;
 }
 /* CONTACT CARD */
-.glassCard.contact {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(99, 102, 241, 0.25);
-  box-shadow: 0 20px 50px rgba(99, 102, 241, 0.15);
+/* Container chính của Contact List */
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
+
+/* Từng dòng liên hệ */
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-radius: 1rem;
+  font-size: 0.95rem;
+  color: #4b5563;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none; /* Cho các thẻ a bên trong */
+}
+
+/* Icon */
 .contactItem svg {
-  color: #6366f1; /* icon nổi */
-}
-.contactItem:hover {
-  transform: translateX(6px);
   color: #6366f1;
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+/* Text */
+.contactItem a,
+.contactItem span {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  z-index: 2;
+}
+
+/* Hiệu ứng HOVER */
+.contactItem:hover {
+  transform: translateX(10px);
+  background: white;
+  border-color: #6366f1;
+  color: #6366f1;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.1);
 }
 
 .contactItem:hover svg {
-  color: #4f46e5;
+  transform: scale(1.2) rotate(-10deg);
+  color: #ec4899; /* Đổi màu icon sang hồng khi hover */
+}
+
+/* Hiệu ứng vết sáng chạy qua khi hover */
+.contactItem::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(99, 102, 241, 0.05),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.contactItem:hover::after {
+  left: 100%;
 }
 /* ===== EDUCATION ===== */
 .educationCard {
   margin-top: 4rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
   border-radius: 2rem;
   padding: 2.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
 }
 
 .educationItem {
   margin-top: 2rem;
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+/* Đường kẻ nối Timeline */
+.educationItem::before {
+  content: "";
+  position: absolute;
+  left: 6px; /* Căn giữa với dot */
+  top: 1.5rem;
+  bottom: -1rem;
+  width: 2px;
+  background: linear-gradient(to bottom, #6366f1, transparent);
+  opacity: 0.5;
+}
+
+/* Loại bỏ đường kẻ ở item cuối cùng */
+.educationItem:last-child::before {
+  display: none;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
-  background: #60a5fa;
+  width: 14px;
+  height: 14px;
+  background: #6366f1;
   border-radius: 50%;
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+  transition: all 0.3s ease;
+}
+
+.educationItem:hover .dot {
+  background: #ec4899;
+  box-shadow: 0 0 0 6px rgba(236, 72, 153, 0.2),
+    0 0 15px rgba(236, 72, 153, 0.5);
+  transform: scale(1.2);
+}
+
+.educationContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.educationContent strong {
+  font-size: 1.2rem;
+  color: #111827;
+  transition: color 0.3s ease;
+}
+
+.educationItem:hover strong {
+  color: #6366f1;
+}
+
+.educationContent p {
+  color: #4b5563;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.statusTag {
+  display: inline-block;
   margin-top: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: fit-content;
+  border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -243,5 +429,99 @@
 
   .buttonGroup {
     justify-content: center;
+  }
+}
+/* Thêm vào file CSS của bạn */
+.slogan {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #6366f1; /* Màu tím Indigo đồng bộ với theme */
+  letter-spacing: 0.05rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* Điều chỉnh lại responsive một chút cho mobile */
+@media (max-width: 992px) {
+  .slogan {
+    text-align: center;
+  }
+}
+.slogan {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4b5563; /* Màu xám đậm cho nội dung câu nói */
+  font-style: italic;
+  margin-top: 1.5rem;
+  max-width: 500px;
+}
+
+.author {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.95rem;
+  /* Sử dụng gradient giống như tiêu đề của bạn */
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Căn giữa khi ở màn hình nhỏ */
+@media (max-width: 992px) {
+  .slogan {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/* Khung bao quanh câu slogan */
+.sloganContainer {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  max-width: fit-content; /* Khung vừa vặn với nội dung */
+  background: rgba(99, 102, 241, 0.03); /* Nền xanh tím cực nhẹ */
+  border-left: 4px solid #6366f1; /* Thanh nhấn bên trái */
+  border-radius: 0.75rem;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(99, 102, 241, 0.1);
+  border-right: 1px solid rgba(99, 102, 241, 0.1);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.slogan {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #4b5563;
+  font-style: italic;
+  margin: 0; /* Loại bỏ margin mặc định để khung khít hơn */
+}
+
+.author {
+  display: block;
+  margin-top: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.85rem;
+  /* Chữ tác giả màu Gradient */
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* Căn chỉnh cho Mobile */
+@media (max-width: 992px) {
+  .sloganContainer {
+    margin-left: auto;
+    margin-right: auto;
+    border-left: none;
+    border-bottom: 3px solid #6366f1; /* Đổi thanh nhấn xuống dưới cho cân bằng */
+    text-align: center;
   }
 }

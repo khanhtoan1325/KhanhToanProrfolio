@@ -36,14 +36,21 @@ export default function AboutPage() {
             </h1>
 
             <p className={styles.subText}>
-              Tôi tập trung xây dựng các hệ thống phần mềm phục vụ quản lý và
-              vận hành doanh nghiệp, với tư duy hệ thống, phân tích yêu cầu và
-              triển khai giải pháp công nghệ hiệu quả.
+              Tôi là sinh viên năm cuôi ngành Hệ Thống Thông Tin tại Đại Học
+              Công Nghệ TP.HCM. Với kinh nghiệm làm việc trong lĩnh vực Chuyên
+              Viên Hỗ Trợ Kỹ Thuật -Xử Lý Dữ Liệu Đơn Hàng, tôi đam mê việc sử
+              dụng công nghệ để giải quyết các thách thức kinh doanh và tối ưu
+              hóa quy trình làm việc. Tôi mong muốn kết nối và hợp tác với các
+              chuyên gia trong ngành để cùng nhau phát triển các giải pháp sáng
+              tạo và hiệu quả.
             </p>
-
-            <div className={styles.buttonGroup}>
-              <button className={styles.primaryBtn}>Xem giải pháp</button>
-              <button className={styles.secondaryBtn}>Phân tích dự án</button>
+            <div className={styles.sloganContainer}>
+              <p className={styles.slogan}>
+                “Data is a precious thing and will last longer than the systems
+                themselves.”
+                <br />
+                <span className={styles.author}>Tim Berners-Lee</span>
+              </p>
             </div>
           </div>
 
@@ -129,12 +136,15 @@ export default function AboutPage() {
 
           <div className={styles.educationItem}>
             <span className={styles.dot} />
-            <div>
-              <strong>Ngành Hệ thống Thông tin</strong>
-              <p>Phân tích – Thiết kế – Xây dựng hệ thống phần mềm</p>
-              <small>Đang học</small>
+            <div className={styles.educationContent}>
+              <strong>Trường Đại Học Công Nghệ TP.HCM</strong>
+              <p>Đang theo học Hệ Thống Thông Tin Và Ứng Dụng.</p>
+              <p> - Phân tích – Thiết kế – Xây dựng hệ thống phần mềm.</p>
+              <span className={styles.statusTag}>Đang học</span>
             </div>
           </div>
+
+          {/* Bạn có thể thêm các mốc học tập khác ở đây */}
         </div>
       </motion.div>
     </section>
